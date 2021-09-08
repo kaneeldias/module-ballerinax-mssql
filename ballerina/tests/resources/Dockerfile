@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM mcr.microsoft.com/mssql/server:2019-latest
+FROM mcr.microsoft.com/azure-sql-edge
 
 COPY keystore/server/server-cert.pem /etc/ssl/certs/mssql.pem
 COPY keystore/server/server-key.pem /etc/ssl/private/mssql.key
@@ -21,10 +21,10 @@ USER root
 RUN chmod 777 /etc/ssl/certs/mssql.pem
 RUN chmod 777 /etc/ssl/private/mssql.key
 
-RUN /opt/mssql/bin/mssql-conf set network.tlscert /etc/ssl/certs/mssql.pem
-RUN /opt/mssql/bin/mssql-conf set network.tlskey /etc/ssl/private/mssql.key
-RUN /opt/mssql/bin/mssql-conf set network.tlsprotocols 1.2
-RUN /opt/mssql/bin/mssql-conf set network.forceencryption 1
+#RUN /opt/mssql/bin/mssql-conf set network.tlscert /etc/ssl/certs/mssql.pem
+#RUN /opt/mssql/bin/mssql-conf set network.tlskey /etc/ssl/private/mssql.key
+#RUN /opt/mssql/bin/mssql-conf set network.tlsprotocols 1.2
+#RUN /opt/mssql/bin/mssql-conf set network.forceencryption 1
 
 ENV ACCEPT_EULA=Y
-ENV SA_PASSWORD=DefaultPassword123
+ENV MSSQL_SA_PASSWORD=DefaultPassword123

@@ -149,7 +149,7 @@ task startTestDockerContainer(type: Exec) {
     if (!Os.isFamily(Os.FAMILY_WINDOWS)) {
         def standardOutput = new ByteArrayOutputStream()
         commandLine 'sh', '-c',
-                "docker run --rm -d --name ${testContainerName} -e ACCEPT_EULA=Y -e SA_PASSWORD=Test123# -p 1433:1433 -d ballerina-mssql"
+                "docker run --rm -d --name ${testContainerName} -e ACCEPT_EULA=Y -e MSSQL_SA_PASSWORD=Test123# -p 1433:1433 -d ballerina-mssql"
         def healthCheck = 1;
         def counter = 0;
         doLast {
