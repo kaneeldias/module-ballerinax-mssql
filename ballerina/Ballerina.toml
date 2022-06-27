@@ -7,13 +7,13 @@ keywords = ["database", "client", "network", "SQL", "RDBMS", "SQLServer", "MSSQL
 repository = "https://github.com/ballerina-platform/module-ballerinax-mssql"
 icon = "icon.png"
 license = ["Apache-2.0"]
-distribution = "2201.1.0"
+distribution = "2201.2.0"
 
 [[platform.java11.dependency]]
 path = "../native/build/libs/mssql-native-1.5.0-SNAPSHOT.jar"
 
 [[platform.java11.dependency]]
-path = "./lib/sql-native-1.4.1.jar"
+path = "./lib/sql-native-1.5.0-20220627-145200-40ad224.jar"
 
 [[platform.java11.dependency]]
 path = "./lib/mssql-jdbc-9.2.0.jre11.jar"
