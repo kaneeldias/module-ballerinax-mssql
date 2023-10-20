@@ -59,10 +59,10 @@ public class ClientProcessorUtils {
         }
         BMap options = clientConfig.getMapValue(Constants.ClientConfiguration.OPTIONS);
         String datasourceName = Constants.MSSQL_DATASOURCE_NAME;
-        BMap properties = null;
+        BMap properties = Utils.generateOptionsMap(options);;
         Properties poolProperties = null;
         if (options != null) {
-            properties = Utils.generateOptionsMap(options);
+            // properties = Utils.generateOptionsMap(options);
             Object queryTimeout = properties.get(Constants.DatabaseProps.QUERY_TIMEOUT);
             if (queryTimeout != null) {
                 poolProperties = new Properties();

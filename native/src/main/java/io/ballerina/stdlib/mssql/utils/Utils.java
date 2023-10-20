@@ -31,8 +31,10 @@ import io.ballerina.stdlib.mssql.Constants;
 public class Utils {
 
     public static BMap generateOptionsMap(BMap mssqlOptions) {
+        BMap<BString, Object> options = ValueCreator.createMapValue();
+        options.put(Constants.DatabaseProps.ENCRYPT, false);
+
         if (mssqlOptions != null) {
-            BMap<BString, Object> options = ValueCreator.createMapValue();    
             addSSLOptions(mssqlOptions.getMapValue(Constants.Options.SECURE_SOCKET), options);
 
             long queryTimeout = getTimeout(mssqlOptions.get(Constants.Options.QUERY_TIMEOUT_SECONDS));
@@ -50,9 +52,8 @@ public class Utils {
                 options.put(Constants.DatabaseProps.LOGIN_TIMEOUT, loginTimeout);
             }
 
-            return options;
         }
-        return null;
+        return options;
     }
 
     private static int getBooleanValue(Object value) {
